@@ -1,0 +1,3 @@
+site:
+  staticPath: /static/upload/
+  localUploadPath: ./views/default/static/upload
