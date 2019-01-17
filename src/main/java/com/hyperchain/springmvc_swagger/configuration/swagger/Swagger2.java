@@ -18,7 +18,7 @@ public class Swagger2 {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.hyperchain.application.controller"))
+                .apis(RequestHandlerSelectors.basePackage("com.hyperchain.springmvc_swagger.application.controller"))
                 .paths(PathSelectors.any())
                 .build();
     }

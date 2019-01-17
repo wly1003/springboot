@@ -1,3 +1,50 @@
+server:
+  port: 8080
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 10
+  connection-timeout: 5000s
+
+spring:
+
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    druid:
+      url: jdbc:mysql://127.0.0.1:3306/myproject?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+      username: root
+      password: wly10033
+      #初始化
+      initial-size: 10
+      #最大
+      max-active: 1000
+      #最小
+      min-idle: 10
+      #最大等待连接时间
+      max-wait: 60000
+      #打开PSCache,并且指定每个连接PSCache的大小
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      #配置间隔多久才进行一次检测,检测需要关闭的空闲连接,单位是毫秒
+      time-between-eviction-runs-millis: 60000
+      #配置一个连接在池中最小生存的时间,单位是毫秒
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      #配置监控统计拦截的filters,去掉后监控界面sql将无法统计,'wall'用于防火墙
+      filter: stat,wall,log4j
+  jpa:
+  #自动建表
+    hibernate:
+      ddl-auto: update
+  #控制台显示sql语句
+    show-sql: true
+
 site:
   staticPath: /static/upload/
-  localUploadPath: ./views/default/static/upload
+  localUploadPath: ./views/default/static/upload/
+  weAppId: wx6d32c6c3d9b28c21
+  weSecret: 762c4040ad6ae9181cd25211738310af
